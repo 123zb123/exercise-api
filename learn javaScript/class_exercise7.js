@@ -158,10 +158,12 @@ function divide(num1, num2) {
 
 async function asyncDivide(num1, num2) {
     try {
-            await divide(num1, num2)
-        } catch(error) {
-            await divide(num1, num2)
+        const result = await divide(num1, num2)
+        return result
+    } catch (error) {
+        throw error
     }
 }
 
-asyncDivide(1,0).then((value) => console.log(value)).catch((error) => console.error(error))
+asyncDivide(6, 0).then((value) => console.log(value)).catch((error) => console.error(error))
+
